@@ -53,6 +53,28 @@ This will:
 2. push `main` to GitHub
 3. trigger the `.deb` build workflow (if `gh` is installed)
 
+## GitHub push troubleshooting (important)
+
+If you hit:
+
+- `pre-receive hook declined`
+- `HTTP 403` from `gh api repos/<owner>/<repo>/rulesets` with message:
+  `Upgrade to GitHub Pro or make this repository public to enable this feature.`
+
+that is a GitHub plan/feature limitation for **rulesets API access on private repos**. It does **not** always mean your repo is broken.
+
+Use this practical flow:
+
+1. **Make the repository public temporarily** (or upgrade to GitHub Pro), then retry publish.
+2. If org/repo protections still block `main`, push a feature branch and open a PR.
+3. Run the diagnostic helper:
+
+```bash
+./scripts/github-push-doctor.sh
+```
+
+The script checks auth, repo permissions, branch protections, and gives next actions.
+
 ## IMPORTANT: Why your clone looked empty
 
 If `git log` only shows `Initialize repository` and the repo only contains `.gitkeep`, then the app commits were never pushed to `origin/main` yet. In that case there is nothing to launch locally until the code is pushed.
