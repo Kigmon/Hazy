@@ -1,0 +1,4 @@
+src/nemoclaw_control usr/lib/python3/dist-packages/nemoclaw_control
+scripts/nemoclaw-control-launcher usr/bin/nemoclaw-control
+packaging/nemoclaw-control.desktop usr/share/applications
+assets/icons/nemoclaw-control.svg usr/share/icons/hicolor/scalable/apps

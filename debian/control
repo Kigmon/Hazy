@@ -1,0 +1,14 @@
+Source: nemoclaw-control
+Section: utils
+Priority: optional
+Maintainer: NemoClaw Control Team <maintainer@example.com>
+Standards-Version: 4.6.2
+Build-Depends: debhelper-compat (= 13), dh-python, python3-all, python3-setuptools
+Rules-Requires-Root: no
+
+Package: nemoclaw-control
+Architecture: all
+Depends: ${misc:Depends}, ${python3:Depends}, python3-pyside6, python3-requests, python3-keyring, policykit-1
+Description: Ubuntu desktop installer and control center for NemoClaw
+ A GUI control center to detect, install, repair, and operate NemoClaw,
+ OpenShell, and Ollama with Twitch integration support.

@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+set -euo pipefail
+LOG_DIR="${HOME}/.local/state/nemoclaw-control"
+mkdir -p "$LOG_DIR"
+LOG_FILE="$LOG_DIR/launch.log"
+{
+  echo "=== $(date -Is) launching nemoclaw-control ==="
+  exec /usr/bin/python3 -m nemoclaw_control.app
+} >>"$LOG_FILE" 2>&1
