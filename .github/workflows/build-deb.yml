@@ -8,6 +8,8 @@ on:
 jobs:
   build-deb:
     runs-on: ubuntu-24.04
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: "true"
     steps:
       - name: Checkout
         uses: actions/checkout@v5
@@ -21,9 +23,14 @@ jobs:
         run: |
           DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -us -uc -b
 
+      - name: Stage artifact in workspace
+        run: |
+          mkdir -p dist
+          cp ../nemoclaw-control_*_all.deb dist/
+
       - name: Upload .deb artifact
         uses: actions/upload-artifact@v5
         with:
           name: nemoclaw-control-deb
-          path: ../nemoclaw-control_*_all.deb
+          path: dist/*.deb
           if-no-files-found: error
