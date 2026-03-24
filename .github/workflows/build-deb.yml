@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-24.04
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v5
 
       - name: Install build deps
         run: |
@@ -22,7 +22,7 @@ jobs:
           DEB_BUILD_OPTIONS=nocheck dpkg-buildpackage -us -uc -b
 
       - name: Upload .deb artifact
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: nemoclaw-control-deb
           path: ../nemoclaw-control_*_all.deb
