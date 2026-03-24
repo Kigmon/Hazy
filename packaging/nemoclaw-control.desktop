@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=NemoClaw Control
+Comment=Install, repair, and manage NemoClaw stack
+Exec=/usr/bin/nemoclaw-control
+Icon=nemoclaw-control
+Terminal=false
+Categories=Utility;System;
+StartupNotify=true
